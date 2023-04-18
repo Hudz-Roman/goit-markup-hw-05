@@ -26,8 +26,10 @@
             >Web<span class="logo-studio-black">Studio</span></a
           >
           <ul class="main-nav list">
-            <li class="main-nav item">
-              <a class="main-nav link" href="./index.html">Studio</a>
+            <li class="main-nav item current-page studio">
+              <a class="main-nav link current-page studio" href="./index.html"
+                >Studio</a
+              >
             </li>
             <li class="main-nav item">
               <a class="main-nav link" href="./portfolio.html">Portfolio</a>
@@ -60,7 +62,12 @@
       <section class="hero-section">
         <div class="container hero">
           <h1 class="main-title">Effective Solutions for Your Business</h1>
-          <button class="button-order" type="button" value="Order Service">
+          <button
+            class="button-order"
+            type="button"
+            value="Order Service"
+            data-modal-open
+          >
             Order Service
           </button>
         </div>
@@ -441,5 +448,17 @@
         </div>
       </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <div class="close-button-item">
+          <button class="close-icon-button" data-modal-close>
+            <svg class="close-icon" width="8" height="8">
+              <use href="./images/icon.svg#icon-close-black"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>

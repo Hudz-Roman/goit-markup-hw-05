@@ -13,7 +13,6 @@
   --white-background: rgba(255, 255, 255, 1);
   --modal-background: rgba(252, 252, 252, 1);
   --customers-icon: rgba(175, 177, 184, 1);
-  --footer-social-media: #ffffff;
 }
 
 body {
@@ -60,6 +59,29 @@ ul {
   height: 72px;
 }
 
+.main-nav.item.current-page {
+  position: relative;
+}
+
+.main-nav.link.current-page::after {
+  display: inline-block;
+  position: absolute;
+  content: '';
+  height: 4px;
+  left: 0px;
+  bottom: -1px;
+  background: var(--pressed-state);
+  border-radius: 2px;
+}
+
+.current-page.portfolio::after {
+  width: 66px;
+}
+
+.current-page.studio::after {
+  width: 48px;
+}
+
 /* logo */
 
 .link {
@@ -104,6 +126,9 @@ ul {
 .main-nav.link:hover,
 .main-nav.link:focus {
   color: var(--pressed-state);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-nav.link {
@@ -149,6 +174,9 @@ ul {
 .contact-nav.link:hover,
 .contact-nav.link:focus {
   color: var(--pressed-state);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Main */
@@ -325,6 +353,9 @@ ul {
 .social.link:focus,
 .social.link:hover {
   background-color: var(--pressed-state);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social.icon {
@@ -369,15 +400,21 @@ ul {
 .button-filter:hover,
 .button-filter:focus {
   border: 1px solid transparent;
-  color: #ffffff;
-  background-color: #404bbf;
+  color: var(--white-text);
+  background-color: var(--pressed-state);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-order:hover,
 .button-order:focus {
   background-color: var(--pressed-state);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Portfolio page */
@@ -401,6 +438,7 @@ ul {
 }
 
 .list-item {
+  position: relative;
   flex-basis: calc((100% - 48px) / 3);
   border: 1px solid var(--accent);
 }
@@ -408,11 +446,6 @@ ul {
 .portfolio-container {
   padding: 32px 16px;
   border-top: none;
-}
-
-.list-item:hover {
-  background: var(--white-background);
-  border: 1px solid var(--light);
 }
 
 .second-subtitle-img.portfolio {
@@ -424,6 +457,40 @@ ul {
 .img.link:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.img.link:hover::before,
+.portfolio-card-text:hover {
+  opacity: 1;
+}
+
+.img.link::before {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  width: 100%;
+  height: 300px;
+  background-color: var(--primary-brand);
+  opacity: 0;
+}
+
+.portfolio-card-text {
+  position: absolute;
+  opacity: 0;
+  color: var(--light);
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  padding: 40px 32px;
 }
 
 /* Customers */
@@ -464,6 +531,9 @@ ul {
 .customer.link:focus {
   color: var(--pressed-state);
   border-color: var(--pressed-state);
+  transition-property: color, border-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customer.icon {
@@ -523,6 +593,9 @@ ul {
 .footer-social.link:focus,
 .footer-social.link:hover {
   background-color: var(--success);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-item {
@@ -532,4 +605,47 @@ ul {
 
 .footer-social.icon {
   fill: var(--light);
+}
+
+/* Backdrop */
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop {
+  position: fixed;
+  background-color: var(--modal-overlay);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal {
+  position: absolute;
+  background-color: var(--modal-background);
+  width: 408px;
+  height: 576px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.close-icon-button {
+  position: absolute;
+  display: flex;
+  width: 24px;
+  height: 24px;
+  background: var(--accent);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  top: 24px;
+  right: 24px;
+  align-items: center;
+  justify-content: center;
 }
