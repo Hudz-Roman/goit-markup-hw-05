@@ -63,6 +63,10 @@ ul {
   position: relative;
 }
 
+.main-nav.link.choose-link {
+  position: relative;
+}
+
 .main-nav.link.current-page::after {
   display: inline-block;
   position: absolute;
@@ -73,6 +77,27 @@ ul {
   bottom: -1px;
   background: var(--pressed-state);
   border-radius: 2px;
+}
+
+.main-nav.link.choose-link::after {
+  display: inline-block;
+  position: absolute;
+  content: '';
+  height: 4px;
+  width: 100%;
+  left: 0px;
+  bottom: -1px;
+  background: var(--pressed-state);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main-nav.link.choose-link:hover::after,
+.main-nav.link.choose-link:focus::after {
+  transform: scaleX(1);
 }
 
 /* logo */
@@ -396,7 +421,7 @@ ul {
   border: 1px solid var(--accent);
   border-radius: 4px;
   padding: 12px 24px;
-  transition-property: background-color;
+  transition-property: background-color border color box-shadow;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -446,29 +471,35 @@ ul {
   margin-bottom: 8px;
 }
 
+.img.link {
+  box-shadow: none;
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .img.link:hover,
 .img.link:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
-/* Повторити тему!!! */
-
 .portfolio-card-img-wrapper {
   position: relative;
   overflow: hidden;
 }
 
-.img.link:hover .portfolio-card-overlay-text,
-.img.link:focus .portfolio-card-overlay-text {
+.img.link:hover .container-overlay-text-card,
+.img.link:focus .container-overlay-text-card {
   transform: translate(0, 0);
   transition-property: transform;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio-card-overlay-text {
+.container-overlay-text-card {
   position: absolute;
+  background-color: var(--primary-brand);
   left: 0;
   top: 0;
   width: 100%;
@@ -476,6 +507,12 @@ ul {
   padding: 40px 32px;
   overflow-y: auto;
   transform: translate(0, 100%);
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-overlay-text {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -483,12 +520,9 @@ ul {
   line-height: 1.5;
   letter-spacing: 0.02em;
   text-align: left;
-  background-color: var(--primary-brand);
   color: var(--light);
   text-transform: none;
 }
-
-/* Повторити тему!!! */
 
 /* Customers */
 
@@ -610,6 +644,9 @@ ul {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+  transition-property: visibility opacity;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop {
@@ -619,6 +656,9 @@ ul {
   left: 0;
   width: 100%;
   height: 100%;
+  transition-property: visibility opacity background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal {
@@ -646,4 +686,13 @@ ul {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition-property: background border fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-icon-button:hover,
+.close-icon-button:focus {
+  background: var(--pressed-state);
+  fill: var(--white-background);
 }
