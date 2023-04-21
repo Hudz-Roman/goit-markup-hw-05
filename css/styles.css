@@ -1,18 +1,18 @@
 :root {
-  --primary-brand: rgba(77, 90, 229, 1);
-  --pressed-state: rgba(64, 75, 191, 1);
-  --dark: rgba(46, 47, 66, 1);
-  --success: rgba(49, 208, 170, 1);
-  --text: rgba(67, 68, 85, 1);
-  --white-text: rgba(255, 255, 255, 1);
-  --subtle-text: rgba(142, 143, 153, 1);
-  --accent: rgba(231, 233, 252, 1);
-  --light: rgba(244, 244, 253, 1);
+  --primary-brand: #4d5ae5;
+  --pressed-state: #404bbf;
+  --dark: #2e2f42;
+  --success: #31d0aa;
+  --text: #434455;
+  --white-text: #ffffff;
+  --subtle-text: #8e8f99;
+  --accent: #e7e9fc;
+  --light: #f4f4fd;
   --modal-overlay: rgba(46, 47, 66, 0.4);
   --hero-background: rgba(46, 47, 66, 0.7);
-  --white-background: rgba(255, 255, 255, 1);
-  --modal-background: rgba(252, 252, 252, 1);
-  --customers-icon: rgba(175, 177, 184, 1);
+  --white-background: #ffffff;
+  --modal-background: #fcfcfc;
+  --customers-icon: #8e8f99;
 }
 
 body {
@@ -550,7 +550,7 @@ ul {
   display: flex;
   width: 100%;
   height: 100%;
-  border: 1px solid var(--subtle-text);
+  border: 1px solid var(--customers-icon);
   border-radius: 4px;
   align-items: center;
   justify-content: center;
